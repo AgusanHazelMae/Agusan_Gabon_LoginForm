@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="Styles.css">
+</head>
+
+<body>
+
+  <div id="login-admin-correct">
+    <p id="login-admin-msg">"It works"</p>
+  </div>
+
+  <main id="main-holder">    
+    <div id="login-header">
+      <h1>LOGIN</h1>
+    </div>
+    
+    <form id="login-form">
+      <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username">
+      <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
+      <input type="submit" value="Login" id="login-form-submit">
+   </form>
+  </main>
+ 
+  <div id="login-user-correct">
+    <p id="login-user-msg">"It works"</p>
+  </div>
+
+  <script>
+    const loginForm = document.getElementById("login-form");
+    const loginButton = document.getElementById("login-form-submit");
+    const loginMsgAdmin = document.getElementById("login-admin-msg");
+    const loginMsgUser = document.getElementById("login-user-msg");
+  
+    loginButton.addEventListener("click", (e) => {
+        e.preventDefault();
+         username = loginForm.username.value;
+         password = loginForm.password.value;
+  
+        if (username === "admin" && password === "admin"){
+            loginMsgUser.style.opacity = 0;
+            loginMsgAdmin.style.opacity = 1;
+        }
+      
+        else if (username === "user" && password === "user") {
+            loginMsgAdmin.style.opacity = 0;
+            loginMsgUser.style.opacity = 1;
+        }
+        else {
+            alert("Wrong credentials");
+            location.reload();
+        }
+    })
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+</html>
